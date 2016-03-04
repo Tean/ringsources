@@ -9,7 +9,7 @@ public class TestCase {
 
     @Test
     public void calc() {
-        final double finit = 4812.25 + 23676.87 + 5987.1 + 2985.98 - 30000;
+        final double finit = 4812.25 + 23676.87 + 5987.1 + 2985.98 - 25000;
         final double fupdate = 1916.66 + 524.4 + 3333.33 + 528 + 2500;
         final double fdayrate = 0.0005;
         final double frepay = 8100.00 - 1300.00 - 200.00 - 300.00 - 1000.00 - 150.00;
@@ -29,6 +29,7 @@ public class TestCase {
         final int fjscalc = cal.get(Calendar.MONTH) - fistartm + 12 * (cal.get(Calendar.YEAR) - fistarty);//19;
 
         double overpay = 0;
+        double updateandinitcount = finit;
 
         while (overpay < 1001) {
             String startmd = "N/A";
@@ -76,6 +77,7 @@ public class TestCase {
                 double monthrate = fdayrate * mtd;
 
                 vinit += vupdate;
+                updateandinitcount += vupdate;
                 double pt = vinit;
                 double pec = vinit * monthrate;
                 vinit += pec;
@@ -93,7 +95,7 @@ public class TestCase {
                 if (left < 0)
                     vinit -= overpay;
                 allpay += payover;
-                System.out.println(String.format("%s-%s 基数:%s,增加:%s,利息%s,最低还款%s,本月还款%s,还完,额外多还%s,需要额外借钱%s,总借款%s,从%s开始,还了总共%s", vistarty, vistartm, pt, vupdate, pec, vinit * 0.1, payover, overpay, left > 0 ? left : 0, blt, startmd, allpay));
+                System.out.println(String.format("%s-%s 基数:%s,总欠%s,增加:%s,利息%s,最低还款%s,本月还款%s,还完,额外多还%s,需要额外借钱%s,总借款%s,从%s开始,还了总共%s", vistarty, vistartm, pt, updateandinitcount, vupdate, pec, vinit * 0.1, payover, overpay, left > 0 ? left : 0, blt, startmd, allpay));
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException e) {
