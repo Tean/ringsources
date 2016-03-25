@@ -6,10 +6,19 @@ import java.util.Calendar;
  * Created by Kings on 2016/3/4.
  */
 public class TestCase {
-
     @Test
+    public void fortrail() {
+        long st = System.currentTimeMillis();
+        for (int i = 0; i < 1000000; i++) {
+
+        }
+        long ed = System.currentTimeMillis();
+        System.out.println(ed - st);
+    }
+
+    //    @Test
     public void calc() {
-        final double finit = 4812.25 + 23676.87 + 5987.1 + 2985.98 - 25000;
+        final double finit = 4812.25 + 23676.87 + 5987.1 + 2985.98;
         final double fupdate = 1916.66 + 524.4 + 3333.33 + 528 + 2500;
         final double fdayrate = 0.0005;
         final double frepay = 8100.00 - 1300.00 - 200.00 - 300.00 - 1000.00 - 150.00;
