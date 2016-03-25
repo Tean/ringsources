@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
+
+rootProject.name = 'ringsources'
+
+include 'Auth', 'band', 'Core', 'ScalaCore'
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'http://maven.oschina.net/content/groups/public'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: 4.12
+}
