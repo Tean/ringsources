@@ -25,7 +25,7 @@ public class DBManagerFactory implements Factory<SecurityManager> {
                 new Realm[]{
                         new Realm() {
                             public String getName() {
-                                return "realm1";
+                                return "realm";
                             }
 
                             public boolean supports(AuthenticationToken authenticationToken) {
